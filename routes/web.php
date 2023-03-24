@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\ProfileController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,6 +13,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
+Route::get('/',[ProfileController::class,'index']);
+Route::post('/',[ProfileController::class,'store']);
+Route::get('/delete/{id}',[ProfileController::class,'destroy']);
+Route::get('/update/{id}',[ProfileController::class,'edit']);
+Route::get('/submitAll',[ProfileController::class,'saveDb']);
+
